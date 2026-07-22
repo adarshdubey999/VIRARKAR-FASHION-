@@ -1,0 +1,269 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <h2 class="text-center mb-2 fw-bold">
+        Our Collection
+    </h2>
+
+    {% if query %}
+    <p class="text-center text-muted mb-4">
+        Search Results for "<strong>{{ query }}</strong>"
+    </p>
+    {% endif %}
+
+
+    <!-- Filter Section -->
+    <div class="card shadow-sm border-0 mb-5">
+
+        <div class="card-body">
+
+            <form method="GET">
+
+                <div class="row g-3">
+
+
+                    <!-- Search -->
+                    <div class="col-lg-4">
+
+                        <label class="form-label fw-bold">
+                            Search
+                        </label>
+
+                        <input type="text"
+                               name="q"
+                               class="form-control"
+                               placeholder="Search products..."
+                               value="{{ request.GET.q }}">
+
+                    </div>
+
+
+
+                    <!-- Category -->
+                    <div class="col-lg-3">
+
+                        <label class="form-label fw-bold">
+                            Category
+                        </label>
+
+
+                        <select name="category" class="form-select">
+
+                            <option value="">
+                                All
+                            </option>
+
+
+                            {% for category in categories %}
+
+                            <option value="{{ category.slug }}"
+                            {% if request.GET.category == category.slug %}selected{% endif %}>
+
+                                {{ category.name }}
+
+                            </option>
+
+                            {% endfor %}
+
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- Sort -->
+                    <div class="col-lg-3">
+
+                        <label class="form-label fw-bold">
+                            Sort By
+                        </label>
+
+
+                        <select name="sort" class="form-select">
+
+
+                            <option value="">
+                                Default
+                            </option>
+
+
+                            <option value="low"
+                            {% if request.GET.sort == "low" %}selected{% endif %}>
+                                Price: Low → High
+                            </option>
+
+
+                            <option value="high"
+                            {% if request.GET.sort == "high" %}selected{% endif %}>
+                                Price: High → Low
+                            </option>
+
+
+                            <option value="new"
+                            {% if request.GET.sort == "new" %}selected{% endif %}>
+                                Newest
+                            </option>
+
+
+                            <option value="az"
+                            {% if request.GET.sort == "az" %}selected{% endif %}>
+                                Name A → Z
+                            </option>
+
+
+                        </select>
+
+
+                    </div>
+
+
+
+                    <!-- Apply Button -->
+                    <div class="col-lg-2 d-grid">
+
+                        <label class="form-label">
+                            &nbsp;
+                        </label>
+
+
+                        <button type="submit" class="btn btn-danger">
+                            Apply
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+
+
+    <!-- Products -->
+
+    <div class="row">
+
+
+        {% for product in products %}
+
+
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+
+
+            <div class="card border-0 shadow-sm h-100">
+
+
+                <img src="{{ product.image.url }}"
+                     class="card-img-top"
+                     alt="{{ product.name }}"
+                     style="height:320px; object-fit:cover;">
+
+
+
+                <div class="card-body text-center">
+
+
+                    <h5 class="fw-bold">
+                        {{ product.name }}
+                    </h5>
+
+
+
+                    <p class="text-danger fs-5 fw-bold">
+                        ₹{{ product.price }}
+                    </p>
+
+
+
+                    {% if product.stock > 10 %}
+
+
+                        <p class="text-success fw-bold">
+                            In Stock ({{ product.stock }})
+                        </p>
+
+
+                    {% elif product.stock > 0 %}
+
+
+                        <p class="text-warning fw-bold">
+                            Only {{ product.stock }} Left
+                        </p>
+
+
+                    {% else %}
+
+
+                        <p class="text-danger fw-bold">
+                            Out of Stock
+                        </p>
+
+
+                    {% endif %}
+
+
+
+
+                    <a href="{% url 'product_detail' product.slug %}"
+                       class="btn btn-dark w-100">
+
+                        View Product
+
+                    </a>
+
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        {% empty %}
+
+
+
+        <div class="text-center py-5">
+
+
+            <h3>
+                No Products Found
+            </h3>
+
+
+            <p class="text-muted">
+                Try searching with another keyword or adjust your filters.
+            </p>
+
+
+        </div>
+
+
+
+        {% endfor %}
+
+
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

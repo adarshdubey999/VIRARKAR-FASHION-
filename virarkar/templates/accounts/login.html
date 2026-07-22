@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Login | Virarkar Fashion{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-5">
+
+            <div class="card shadow">
+
+                <div class="card-body p-4">
+
+                    <h2 class="text-center mb-4">
+                        Login
+                    </h2>
+
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label>Username</label>
+                            <input
+                                type="text"
+                                name="username"
+                                class="form-control"
+                                required>
+                        </div>
+
+                        <div class="mb-4">
+                            <label>Password</label>
+                            <input
+                                type="password"
+                                name="password"
+                                class="form-control"
+                                required>
+                        </div>
+
+                        <button class="btn btn-dark w-100">
+                            Login
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

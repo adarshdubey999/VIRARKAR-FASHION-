@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Your Cart</h2>
+
+    {% if items %}
+    <table class="table table-bordered mt-4">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for item in items %}
+            <tr>
+
+                <td>
+                    <div class="d-flex align-items-center">
+
+                        {% if item.product.image %}
+                        <img src="{{ item.product.image.url }}" width="80" height="80" class="rounded me-3"
+                            style="object-fit: cover;">
+                        {% else %}
+                        <div class="rounded me-3 d-flex align-items-center justify-content-center border"
+                            style="width:80px; height:80px; background:#f8f9fa; color:#6c757d;">
+                            No Image
+                        </div>
+                        {% endif %}
+
+                        <div>
+                            <strong>{{ item.product.name }}</strong>
+                        </div>
+
+                    </div>
+                </td>
+
+              <td>
+    <div class="d-flex align-items-center">
+
+        <span class="fw-bold">
+            {{ item.quantity }}
+        </span>
+
+        <a href="{% url 'decrease_quantity' item.product.id %}" 
+           class="btn btn-sm btn-outline-dark ms-2">
+            -
+        </a>
+
+
+        {% if item.quantity < item.product.stock %}
+
+            <a href="{% url 'increase_quantity' item.product.id %}" 
+               class="btn btn-sm btn-outline-dark ms-2">
+                +
+            </a>
+
+        {% else %}
+
+            <button class="btn btn-sm btn-secondary ms-2" disabled>
+                +
+            </button>
+
+        {% endif %}
+
+    </div>
+
+
+    <small class="text-muted d-block mt-2">
+        Available stock: {{ item.product.stock }}
+    </small>
+
+
+    {% if item.quantity >= item.product.stock %}
+
+        <small class="text-danger">
+            Maximum stock reached
+        </small>
+
+    {% endif %}
+
+</td>
+
+                <td>
+                    ₹{{ item.product.price }}
+                </td>
+
+                <td>
+                    ₹{{ item.item_total }}
+                </td>
+
+                <td>
+                    <a href="{% url 'remove_from_cart' item.product.id %}" class="btn btn-danger btn-sm">
+                        Remove
+                    </a>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h4 class="text-end">
+        Grand Total: ₹{{ total }}
+    </h4>
+
+    <div class="text-end mt-3">
+        <a href="{% url 'checkout' %}" class="btn btn-success btn-lg">
+            Proceed to Checkout
+        </a>
+    </div>
+
+    {% else %}
+
+    <div class="alert alert-warning mt-4">
+        Your cart is empty.
+    </div>
+
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,283 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f5f5f5;
+    color: #1f1f1f;
+}
+
+.watermark-section {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+
+.watermark-section>* {
+    position: relative;
+    z-index: 1;
+}
+
+.logo {
+    color: #c1121f !important;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.navbar {
+    padding: 18px 0;
+}
+
+.nav-link {
+    font-weight: 500;
+    margin: 0 10px;
+    transition: .3s;
+}
+
+.nav-link:hover {
+    color: #c1121f !important;
+}
+
+.bi {
+    cursor: pointer;
+    transition: .3s;
+}
+
+.bi:hover {
+    color: #c1121f;
+    transform: scale(1.15);
+}
+
+.hero{
+    position:relative;
+    width:100%;
+    min-height:650px;
+
+    border-radius:20px;
+    overflow:hidden;
+
+    background-image:url("../images/virarkar final image .png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.hero-overlay {
+    width: 100%;
+    min-height: 650px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 80px 20px;
+
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.55),
+        rgba(0, 0, 0, 0.35)
+    );
+}
+
+.hero-content{
+    max-width:700px;
+}
+
+.hero-content h1 {
+    font-size: 64px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 12px rgba(0,0,0,.5);
+}
+
+
+.hero-content p {
+    color: #f1f1f1;
+    font-size: 20px;
+    max-width: 650px;
+    margin: auto;
+}
+
+.hero-content .btn {
+    margin-top: 25px;
+    padding: 14px 40px;
+    font-size: 18px;
+    border-radius: 50px;
+    transition: 0.3s ease;
+}
+
+.hero-content .btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(193,18,31,.4);
+}
+
+.category-card {
+
+    height: 350px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    transition: 0.4s;
+}
+
+
+.men {
+
+    background: linear-gradient(rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)),
+        #222;
+
+}
+
+
+.women {
+
+    background: linear-gradient(rgba(139, 0, 0, 0.7),
+            rgba(139, 0, 0, 0.7)),
+        #111;
+
+}
+
+
+
+.category-card:hover {
+
+    transform: translateY(-10px);
+
+}
+
+
+.category-content h2 {
+
+    font-size: 45px;
+    font-weight: 700;
+
+}
+
+#rating-stars{
+
+    display:flex;
+    gap:10px;
+
+}
+
+
+.star{
+
+    font-size:40px;
+    color:#ccc;
+    cursor:pointer;
+    transition:0.3s;
+
+}
+
+
+.star:hover{
+
+    transform:scale(1.2);
+
+}
+
+
+.star.active{
+
+    color:gold;
+
+}
+
+/* ==========================
+   Mobile Responsive
+========================== */
+
+@media (max-width: 768px) {
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .hero {
+        min-height: 450px;
+        padding: 40px 15px;
+        border-radius: 15px;
+    }
+
+    .hero-logo {
+        max-width: 260px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .category-card {
+        height: 220px;
+        margin-bottom: 20px;
+    }
+
+    .category-content h2 {
+        font-size: 30px;
+    }
+
+    .card-img-top {
+        height: 250px !important;
+        object-fit: cover;
+    }
+
+    .btn-danger,
+    .btn-dark {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .d-flex.gap-2 {
+        flex-direction: column;
+    }
+}
+
+/* ==========================
+   Logo Styling
+========================== */
+
+.logo {
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.logo-red {
+    color: #c1121f;
+}
+
+.logo-black {
+    color: #000;
+}
+
+.logo:hover {
+    text-decoration: none;
+}
+
+.logo:hover .logo-red {
+    color: #e63946;
+}
+
+.logo:hover .logo-black {
+    color: #333;
+}

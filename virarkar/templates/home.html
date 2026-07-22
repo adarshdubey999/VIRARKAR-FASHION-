@@ -1,0 +1,359 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Virarkar Fashion | Premium Style{% endblock %}
+
+{% block content %}
+
+<div class="watermark-section">
+
+    <div class="hero">
+
+        <div class="hero-overlay">
+
+            <div class="hero-content text-center">
+
+                <p class="text-uppercase fw-semibold text-danger mb-2">
+                    New Season Collection
+                </p>
+
+                <h1 class="display-4 fw-bold">
+                    Premium Men's Fashion & Footwear
+                </h1>
+                <p class="lead mb-4">
+                    Discover stylish clothing, sneakers, crocs, flip-flops and more.
+                    Elevate your style with Virarkar Fashion.
+                </p>
+
+                <a href="#products" class="btn btn-danger btn-lg px-5 py-3 rounded-pill">
+                    Shop Now
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row mt-5 g-4">
+
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm hero-card">
+                <div class="card-body">
+                    <h5 class="card-title">Trending Picks</h5>
+                    <p class="card-text text-muted">
+                        Fresh arrivals crafted for everyday confidence.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm hero-card">
+                <div class="card-body">
+                    <h5 class="card-title">Limited Offers</h5>
+                    <p class="card-text text-muted">
+                        Seasonal favorites at irresistible prices.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm hero-card">
+                <div class="card-body">
+                    <h5 class="card-title">Customer Care</h5>
+                    <p class="card-text text-muted">
+                        Friendly support for every order.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<section class="container my-5">
+
+    <h2 class="text-center mb-5 fw-bold">
+        Shop By Category
+    </h2>
+
+
+    <div class="row g-4">
+
+
+        <div class="col-md-6">
+
+            <div class="category-card men">
+
+                <div class="category-content">
+
+                    <h2>Men</h2>
+
+                    <p>
+                        Explore men's fashion collection
+                    </p>
+
+                    <a href="#" class="btn btn-light">
+                        Shop Now
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="col-md-6">
+
+            <div class="category-card women">
+
+                <div class="category-content">
+
+                    <h2>Women</h2>
+
+                    <p>
+                        Discover women's latest trends
+                    </p>
+
+                    <a href="#" class="btn btn-light">
+                        Shop Now
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+
+
+<section class="container my-5">
+
+
+    <h2 class="text-center fw-bold mb-5">
+        Featured Collection
+    </h2>
+
+
+
+    <div class="row g-4">
+
+
+        {% for product in featured_products %}
+
+
+        <div class="col-md-4">
+
+
+            <div class="card shadow-sm h-100 product-card">
+
+
+                <img src="{{ product.image.url }}" class="card-img-top" style="height:300px; object-fit:cover;">
+
+
+
+                <div class="card-body text-center">
+
+
+                    <h5>
+                        {{ product.name }}
+                    </h5>
+
+
+                    <h4 class="text-danger">
+                        ₹{{ product.price }}
+                    </h4>
+
+
+
+                    <div class="d-flex justify-content-center gap-2">
+
+
+                        <a href="{% url 'product_detail' product.slug %}" class="btn btn-dark">
+                            View Product
+                        </a>
+
+
+
+                        <a href="{% url 'add_to_wishlist' product.id %}" class="btn btn-outline-danger">
+                            ❤️
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        {% endfor %}
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+
+<hr class="my-5">
+
+
+<h2 class="mb-4" id="products">
+    Our Products
+</h2>
+
+
+
+<div class="row">
+
+
+    {% for product in products %}
+
+
+    <div class="col-md-4 mb-4">
+
+
+        <div class="card h-100 shadow-sm product-card">
+
+
+
+            {% if product.image %}
+
+
+            <a href="{% url 'product_detail' product.slug %}" class="d-block text-decoration-none">
+
+
+                <img src="{{ product.image.url }}" class="card-img-top" style="height:300px; object-fit:cover;">
+
+
+            </a>
+
+
+
+            {% else %}
+
+
+            <div class="d-flex align-items-center justify-content-center bg-light" style="height:300px;">
+
+                <span class="text-muted">
+                    No image available
+                </span>
+
+            </div>
+
+
+            {% endif %}
+
+
+
+
+
+            <div class="card-body">
+
+
+                <h5>
+
+                    <a href="{% url 'product_detail' product.slug %}" class="text-dark text-decoration-none">
+
+                        {{ product.name }}
+
+                    </a>
+
+                </h5>
+
+
+
+                <p class="text-muted mb-2">
+                    {{ product.category }}
+                </p>
+
+
+
+                <h4 class="text-danger">
+                    ₹{{ product.price }}
+                </h4>
+
+
+
+                <p class="text-muted">
+                    {{ product.description|truncatewords:12 }}
+                </p>
+
+
+
+
+                <div class="d-flex gap-2">
+
+
+                    <a href="{% url 'product_detail' product.slug %}" class="btn btn-dark flex-grow-1">
+
+                        View Product
+
+                    </a>
+
+
+
+                    <a href="{% url 'add_to_wishlist' product.id %}" class="btn btn-outline-danger">
+
+                        ❤️
+
+                    </a>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+    {% empty %}
+
+
+    <h3>
+        No products available.
+    </h3>
+
+
+    {% endfor %}
+
+
+</div>
+
+
+
+{% endblock %}
