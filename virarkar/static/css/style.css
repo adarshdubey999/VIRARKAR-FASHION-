@@ -539,3 +539,27 @@ html[data-theme="dark"] .navbar::after {
         background: var(--surface) !important;
     }
 }
+
+
+/* Make the glass surface visibly overlap the content beneath it. */
+.navbar.glass-navbar,
+.navbar {
+    margin-bottom: -86px;
+    background: rgba(255, 255, 255, 0.34) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.72);
+    box-shadow: 0 10px 35px rgba(15, 23, 42, 0.16) !important;
+}
+
+html[data-theme="dark"] .navbar.glass-navbar,
+html[data-theme="dark"] .navbar {
+    background: rgba(18, 20, 24, 0.42) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.38) !important;
+}
+
+@media (max-width: 991.98px) {
+    .navbar.glass-navbar,
+    .navbar {
+        margin-bottom: -74px;
+    }
+}
