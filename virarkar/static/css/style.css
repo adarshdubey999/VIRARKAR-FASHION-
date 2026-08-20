@@ -672,3 +672,84 @@ html[data-theme="dark"] .logo:hover .logo-black {
         font-size: 0.7rem;
     }
 }
+
+
+/* Premium watermark treatment for men's clothing categories. */
+.clothing-category-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 220px;
+    background-size: cover;
+    background-position: center;
+}
+
+.clothing-category-card::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background-repeat: no-repeat;
+    background-position: 88% 58%;
+    background-size: 68% 125%;
+    opacity: 0.16;
+    transform: rotate(-7deg);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.clothing-category-card::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(8, 12, 18, 0.24), rgba(8, 12, 18, 0.04));
+}
+
+.clothing-category-card:hover::before {
+    opacity: 0.25;
+    transform: rotate(-7deg) scale(1.06);
+}
+
+.clothing-category-card span,
+.clothing-category-card small {
+    position: relative;
+    z-index: 1;
+}
+
+.category-shirt {
+    background: linear-gradient(135deg, #243247 0%, #5b7186 100%);
+}
+
+.category-shirt::before {
+    background-image: url("../images/category-watermarks/shirt.svg");
+}
+
+.category-pants {
+    background: linear-gradient(135deg, #3e473b 0%, #78836f 100%);
+}
+
+.category-pants::before {
+    background-image: url("../images/category-watermarks/pants.svg");
+}
+
+.category-tshirt {
+    background: linear-gradient(135deg, #6b2737 0%, #b55661 100%);
+}
+
+.category-tshirt::before {
+    background-image: url("../images/category-watermarks/tshirt.svg");
+}
+
+.category-trousers {
+    background: linear-gradient(135deg, #745b45 0%, #b49470 100%);
+}
+
+.category-trousers::before {
+    background-image: url("../images/category-watermarks/trousers.svg");
+}
+
+@media (max-width: 575.98px) {
+    .clothing-category-card {
+        min-height: 175px;
+    }
+}
