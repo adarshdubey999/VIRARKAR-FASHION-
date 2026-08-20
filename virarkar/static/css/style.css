@@ -587,3 +587,88 @@ html[data-theme="dark"] .logo:hover .logo-black {
         padding: 1.1rem;
     }
 }
+
+
+/* ==========================
+   Men's Clothing Categories
+========================== */
+.clothing-categories > p {
+    max-width: 560px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.clothing-category-card {
+    display: flex;
+    min-height: 210px;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 1.25rem;
+    border: 1px solid var(--border-color);
+    border-radius: 1.25rem;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 0.45rem 1.25rem var(--shadow-color);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.clothing-category-card:hover {
+    color: #ffffff;
+    transform: translateY(-6px);
+    box-shadow: 0 0.9rem 1.8rem var(--shadow-color);
+    filter: saturate(1.12);
+}
+
+.clothing-category-card i {
+    margin-bottom: 0.45rem;
+    font-size: 2.25rem;
+}
+
+.clothing-category-card span {
+    font-size: 1.35rem;
+    font-weight: 800;
+}
+
+.clothing-category-card small {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.8rem;
+}
+
+.category-shirt {
+    background: linear-gradient(145deg, #172554, #2563eb);
+}
+
+.category-pants {
+    background: linear-gradient(145deg, #312e81, #7c3aed);
+}
+
+.category-tshirt {
+    background: linear-gradient(145deg, #7f1d1d, #dc2626);
+}
+
+.category-trousers {
+    background: linear-gradient(145deg, #164e63, #0891b2);
+}
+
+@media (max-width: 575.98px) {
+    .clothing-category-card {
+        min-height: 165px;
+        padding: 1rem 0.65rem;
+    }
+
+    .clothing-category-card i {
+        font-size: 1.8rem;
+    }
+
+    .clothing-category-card span {
+        font-size: 1.05rem;
+    }
+
+    .clothing-category-card small {
+        font-size: 0.7rem;
+    }
+}

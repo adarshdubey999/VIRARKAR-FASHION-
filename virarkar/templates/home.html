@@ -88,43 +88,47 @@
 
 
 
-<section class="container my-5">
-
-    <h2 class="text-center mb-5 fw-bold">
-        Shop By Category
+<section class="container my-5 clothing-categories" aria-labelledby="clothing-categories-title">
+    <h2 id="clothing-categories-title" class="text-center mb-2 fw-bold">
+        Shop Men’s Essentials
     </h2>
-
+    <p class="text-center text-muted mb-5">
+        Find the everyday staples that define your style.
+    </p>
 
     <div class="row g-4">
-
-
-        <div class="col-md-6">
-
-            <div class="category-card men">
-
-                <div class="category-content">
-
-                    <h2>Men</h2>
-
-                    <p>
-                        Explore men's fashion collection
-                    </p>
-
-                    <a href="#" class="btn btn-light">
-                        Shop Now
-                    </a>
-
-                </div>
-
-            </div>
-
+        <div class="col-6 col-lg-3">
+            <a class="clothing-category-card category-shirt" href="{% url 'product_list' %}?q=shirt">
+                <i class="bi bi-person-standing" aria-hidden="true"></i>
+                <span>Shirts</span>
+                <small>Smart everyday layers</small>
+            </a>
         </div>
 
+        <div class="col-6 col-lg-3">
+            <a class="clothing-category-card category-pants" href="{% url 'product_list' %}?q=pants">
+                <i class="bi bi-person" aria-hidden="true"></i>
+                <span>Pants</span>
+                <small>Fits for every plan</small>
+            </a>
+        </div>
 
+        <div class="col-6 col-lg-3">
+            <a class="clothing-category-card category-tshirt" href="{% url 'product_list' %}?q=tshirt">
+                <i class="bi bi-bag" aria-hidden="true"></i>
+                <span>T-shirts</span>
+                <small>Comfort meets confidence</small>
+            </a>
+        </div>
 
-
+        <div class="col-6 col-lg-3">
+            <a class="clothing-category-card category-trousers" href="{% url 'product_list' %}?q=trouser">
+                <i class="bi bi-person-bounding-box" aria-hidden="true"></i>
+                <span>Trousers</span>
+                <small>Sharp, polished essentials</small>
+            </a>
+        </div>
     </div>
-
 </section>
 
 
