@@ -35,44 +35,54 @@
 
     </div>
 
-    <div class="row mt-5 g-4">
-
-        <div class="col-md-4">
-            <div class="card h-100 border-0 shadow-sm hero-card">
-                <div class="card-body">
-                    <h5 class="card-title">Trending Picks</h5>
-                    <p class="card-text text-muted">
-                        Fresh arrivals crafted for everyday confidence.
-                    </p>
-                </div>
-            </div>
+    <section class="benefits-section" aria-labelledby="benefits-title">
+        <div class="benefits-heading">
+            <span class="benefits-eyebrow">The Virarkar difference</span>
+            <h2 id="benefits-title">Style made simple</h2>
+            <p>Everything you need for a more confident everyday wardrobe.</p>
         </div>
 
+        <div class="row g-3 g-lg-4">
+            <div class="col-md-4">
+                <article class="benefit-card">
+                    <div class="benefit-icon" aria-hidden="true">
+                        <i class="bi bi-stars"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Fresh arrivals</h3>
+                        <p>Discover new styles selected for everyday confidence.</p>
+                        <a href="#products" class="benefit-link">Explore new arrivals <i class="bi bi-arrow-up-right"></i></a>
+                    </div>
+                </article>
+            </div>
 
-        <div class="col-md-4">
-            <div class="card h-100 border-0 shadow-sm hero-card">
-                <div class="card-body">
-                    <h5 class="card-title">Limited Offers</h5>
-                    <p class="card-text text-muted">
-                        Seasonal favorites at irresistible prices.
-                    </p>
-                </div>
+            <div class="col-md-4">
+                <article class="benefit-card">
+                    <div class="benefit-icon" aria-hidden="true">
+                        <i class="bi bi-tag"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Exclusive offers</h3>
+                        <p>Save more with seasonal prices and limited-time deals.</p>
+                        <a href="#products" class="benefit-link">View offers <i class="bi bi-arrow-up-right"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-4">
+                <article class="benefit-card">
+                    <div class="benefit-icon" aria-hidden="true">
+                        <i class="bi bi-headset"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Helpful support</h3>
+                        <p>Get friendly assistance before and after every order.</p>
+                        <a href="{% url 'product_list' %}" class="benefit-link">Start shopping <i class="bi bi-arrow-up-right"></i></a>
+                    </div>
+                </article>
             </div>
         </div>
-
-
-        <div class="col-md-4">
-            <div class="card h-100 border-0 shadow-sm hero-card">
-                <div class="card-body">
-                    <h5 class="card-title">Customer Care</h5>
-                    <p class="card-text text-muted">
-                        Friendly support for every order.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    </div>
+    </section>
 
 </div>
 
