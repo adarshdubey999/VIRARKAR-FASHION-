@@ -462,3 +462,11 @@ html[data-theme="dark"] .logo:hover .logo-black {
         margin: 0.75rem 0;
     }
 }
+
+
+/* Hero artwork needs a dedicated high-contrast title color in both themes. */
+.hero-content h1,
+.hero h1 {
+    color: #ffffff !important;
+    text-shadow: 2px 3px 14px rgba(0, 0, 0, 0.9), 0 0 3px rgba(0, 0, 0, 0.8);
+}
