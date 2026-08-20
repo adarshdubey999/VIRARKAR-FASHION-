@@ -489,3 +489,53 @@ html[data-theme="dark"] .logo:hover .logo-black {
         margin: 0.75rem 0;
     }
 }
+
+
+/* ==========================
+   Glass Navigation
+========================== */
+.navbar.glass-navbar,
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    background: rgba(255, 255, 255, 0.72) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.52);
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    backdrop-filter: blur(18px) saturate(150%);
+}
+
+html[data-theme="dark"] .navbar.glass-navbar,
+html[data-theme="dark"] .navbar {
+    background: rgba(25, 27, 32, 0.72) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.28) !important;
+}
+
+.navbar.glass-navbar::after,
+.navbar::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent 42%, rgba(255, 255, 255, 0.08));
+    opacity: 0.8;
+}
+
+.navbar.glass-navbar > .container,
+.navbar > .container {
+    position: relative;
+    z-index: 1;
+}
+
+html[data-theme="dark"] .navbar::after {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), transparent 42%, rgba(255, 255, 255, 0.03));
+}
+
+@supports not ((backdrop-filter: blur(1px))) {
+    .navbar.glass-navbar,
+    .navbar {
+        background: var(--surface) !important;
+    }
+}
