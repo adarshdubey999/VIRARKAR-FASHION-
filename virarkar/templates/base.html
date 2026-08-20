@@ -25,6 +25,14 @@
 
     <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}">
 
+    <script>
+        (() => {
+            const savedTheme = localStorage.getItem('virarkar-theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.dataset.theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+        })();
+    </script>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
