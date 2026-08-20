@@ -8,8 +8,8 @@ from .models import Product, Review, Category
 
 def product_list(request):
 
-    products = Product.objects.all()
-    categories = Category.objects.all()
+    products = Product.objects.exclude(category__slug__icontains="women")
+    categories = Category.objects.exclude(slug__icontains="women")
 
     # -------------------------
     # Search
