@@ -209,138 +209,57 @@
 
 
 
-<hr class="my-5">
-
-
-<h2 class="mb-4" id="products">
-    Our Products
-</h2>
-
-
-
-<div class="row">
-
-
-    {% for product in products %}
-
-
-    <div class="col-md-4 mb-4">
-
-
-        <div class="card h-100 shadow-sm product-card">
-
-
-
-            {% if product.image %}
-
-
-            <a href="{% url 'product_detail' product.slug %}" class="d-block text-decoration-none">
-
-
-                <img src="{{ product.image.url }}" class="card-img-top" style="height:300px; object-fit:cover;">
-
-
-            </a>
-
-
-
-            {% else %}
-
-
-            <div class="d-flex align-items-center justify-content-center bg-light" style="height:300px;">
-
-                <span class="text-muted">
-                    No image available
-                </span>
-
-            </div>
-
-
-            {% endif %}
-
-
-
-
-
-            <div class="card-body">
-
-
-                <h5>
-
-                    <a href="{% url 'product_detail' product.slug %}" class="text-dark text-decoration-none">
-
-                        {{ product.name }}
-
-                    </a>
-
-                </h5>
-
-
-
-                <p class="text-muted mb-2">
-                    {{ product.category }}
-                </p>
-
-
-
-                <h4 class="text-danger">
-                    ₹{{ product.price }}
-                </h4>
-
-
-
-                <p class="text-muted">
-                    {{ product.description|truncatewords:12 }}
-                </p>
-
-
-
-
-                <div class="d-flex gap-2">
-
-
-                    <a href="{% url 'product_detail' product.slug %}" class="btn btn-dark flex-grow-1">
-
-                        View Product
-
-                    </a>
-
-
-
-                    <a href="{% url 'add_to_wishlist' product.id %}" class="btn btn-outline-danger">
-
-                        ❤️
-
-                    </a>
-
-
-
-                </div>
-
-
-
-            </div>
-
-
-
+<section class="products-showcase container" id="products" aria-labelledby="products-title">
+    <div class="products-heading">
+        <div>
+            <span class="products-eyebrow">Curated for your wardrobe</span>
+            <h2 id="products-title">Our Products</h2>
         </div>
-
-
+        <a href="{% url 'product_list' %}" class="products-view-all">View all products <i class="bi bi-arrow-right"></i></a>
     </div>
 
+    <div class="row g-4">
+        {% for product in products %}
+        <div class="col-sm-6 col-lg-4">
+            <article class="product-card card h-100">
+                {% if product.image %}
+                <a href="{% url 'product_detail' product.slug %}" class="product-card-image-link">
+                    <img src="{{ product.image.url }}" class="product-card-image" alt="{{ product.name }}">
+                    <span class="product-card-badge">Featured</span>
+                </a>
+                {% else %}
+                <div class="product-card-image product-card-image-empty">
+                    <span class="text-muted">No image available</span>
+                </div>
+                {% endif %}
 
-    {% empty %}
-
-
-    <h3>
-        No products available.
-    </h3>
-
-
-    {% endfor %}
-
-
-</div>
+                <div class="card-body product-card-body">
+                    <p class="product-card-category">{{ product.category }}</p>
+                    <h3 class="product-card-title">
+                        <a href="{% url 'product_detail' product.slug %}">{{ product.name }}</a>
+                    </h3>
+                    <p class="product-card-description">{{ product.description|truncatewords:14 }}</p>
+                    <div class="product-card-footer">
+                        <strong class="product-card-price">₹{{ product.price }}</strong>
+                        <a href="{% url 'add_to_wishlist' product.id %}" class="product-wishlist" aria-label="Add {{ product.name }} to wishlist">
+                            <i class="bi bi-heart"></i>
+                        </a>
+                    </div>
+                    <a href="{% url 'product_detail' product.slug %}" class="btn btn-dark product-card-button">View Product <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+            </article>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="empty-products-state">
+                <i class="bi bi-bag-x"></i>
+                <h3>No products available</h3>
+                <p class="text-muted">New styles are coming soon.</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
 
 
 
