@@ -21,20 +21,21 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}">
+<script>
+    (() => {
+        const savedTheme = localStorage.getItem('virarkar-theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+    })();
+</script>
 
-    <script>
-        (() => {
-            const savedTheme = localStorage.getItem('virarkar-theme');
-            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            document.documentElement.dataset.theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-        })();
-    </script>
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<!-- Custom CSS -->
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
 <body class="d-flex flex-column min-vh-100">

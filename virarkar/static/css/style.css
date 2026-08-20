@@ -58,39 +58,35 @@ body {
     transform: scale(1.15);
 }
 
-.hero {
-    position: relative;
-    width: 100%;
-    min-height: clamp(450px, 42vw, 650px);
-    border-radius: 20px;
-    overflow: hidden;
-    isolation: isolate;
-    background-color: #050505;
-    background-image: url("../images/virarkar final image .png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+.hero{
+    position:relative;
+    width:100%;
+    min-height:650px;
+
+    border-radius:20px;
+    overflow:hidden;
+
+    background-image:url("../images/virarkar final image .png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
 }
 
 .hero-overlay {
     width: 100%;
-    min-height: inherit;
+    min-height: 650px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     text-align: center;
-    padding: clamp(48px, 7vw, 80px) 20px;
+    padding: 80px 20px;
+
     background: linear-gradient(
         rgba(0, 0, 0, 0.55),
         rgba(0, 0, 0, 0.35)
     );
-}
-
-.product-image {
-    display: block;
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
 }
 
 .hero-content{
@@ -209,43 +205,27 @@ body {
 ========================== */
 
 @media (max-width: 768px) {
+
     .logo {
         font-size: 22px;
     }
 
     .hero {
-        min-height: 0;
-        aspect-ratio: 2.2 / 1;
+        min-height: 450px;
+        padding: 40px 15px;
         border-radius: 15px;
-        background-size: cover;
-        background-position: center center;
     }
 
-    .hero-overlay {
-        padding: 16px 14px;
+    .hero-logo {
+        max-width: 260px;
     }
 
-    .hero-content {
-        width: min(100%, 360px);
-    }
-
-    .hero-content h1,
     .hero h1 {
-        font-size: clamp(22px, 6.4vw, 30px);
-        line-height: 1.05;
-        margin-bottom: 8px;
+        font-size: 30px;
     }
 
-    .hero-content p,
     .hero p {
-        font-size: 12px;
-        line-height: 1.25;
-    }
-
-    .hero-content .btn {
-        width: min(100%, 280px);
-        padding: 8px 20px;
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .category-card {
@@ -257,7 +237,6 @@ body {
         font-size: 30px;
     }
 
-    .product-image,
     .card-img-top {
         height: 250px !important;
         object-fit: cover;
@@ -265,16 +244,12 @@ body {
 
     .btn-danger,
     .btn-dark {
+        width: 100%;
         margin-bottom: 10px;
     }
 
     .d-flex.gap-2 {
-        flex-wrap: wrap;
-    }
-
-    .d-flex.gap-2 > .btn-dark,
-    .d-flex.gap-2 > .flex-grow-1 {
-        flex: 1 1 100%;
+        flex-direction: column;
     }
 }
 
@@ -306,8 +281,6 @@ body {
 .logo:hover .logo-black {
     color: #333;
 }
-
-
 /* ==========================
    Theme System
 ========================== */
@@ -487,79 +460,5 @@ html[data-theme="dark"] .logo:hover .logo-black {
     .theme-toggle {
         width: 100%;
         margin: 0.75rem 0;
-    }
-}
-
-
-/* ==========================
-   Glass Navigation
-========================== */
-.navbar.glass-navbar,
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1030;
-    background: rgba(255, 255, 255, 0.72) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.52);
-    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08) !important;
-    -webkit-backdrop-filter: blur(18px) saturate(150%);
-    backdrop-filter: blur(18px) saturate(150%);
-}
-
-html[data-theme="dark"] .navbar.glass-navbar,
-html[data-theme="dark"] .navbar {
-    background: rgba(25, 27, 32, 0.72) !important;
-    border-bottom-color: rgba(255, 255, 255, 0.12);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.28) !important;
-}
-
-.navbar.glass-navbar::after,
-.navbar::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent 42%, rgba(255, 255, 255, 0.08));
-    opacity: 0.8;
-}
-
-.navbar.glass-navbar > .container,
-.navbar > .container {
-    position: relative;
-    z-index: 1;
-}
-
-html[data-theme="dark"] .navbar::after {
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), transparent 42%, rgba(255, 255, 255, 0.03));
-}
-
-@supports not ((backdrop-filter: blur(1px))) {
-    .navbar.glass-navbar,
-    .navbar {
-        background: var(--surface) !important;
-    }
-}
-
-
-/* Make the glass surface visibly overlap the content beneath it. */
-.navbar.glass-navbar,
-.navbar {
-    margin-bottom: -86px;
-    background: rgba(255, 255, 255, 0.34) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.72);
-    box-shadow: 0 10px 35px rgba(15, 23, 42, 0.16) !important;
-}
-
-html[data-theme="dark"] .navbar.glass-navbar,
-html[data-theme="dark"] .navbar {
-    background: rgba(18, 20, 24, 0.42) !important;
-    border-bottom-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.38) !important;
-}
-
-@media (max-width: 991.98px) {
-    .navbar.glass-navbar,
-    .navbar {
-        margin-bottom: -74px;
     }
 }

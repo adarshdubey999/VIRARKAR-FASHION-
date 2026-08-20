@@ -164,7 +164,7 @@
             <div class="card shadow-sm h-100 product-card">
 
 
-                <img src="{{ product.image.url }}" class="card-img-top product-image">
+                <img src="{{ product.image.url }}" class="card-img-top" style="height:300px; object-fit:cover;">
 
 
 
@@ -249,7 +249,7 @@
             <a href="{% url 'product_detail' product.slug %}" class="d-block text-decoration-none">
 
 
-                <img src="{{ product.image.url }}" class="card-img-top product-image">
+                <img src="{{ product.image.url }}" class="card-img-top" style="height:300px; object-fit:cover;">
 
 
             </a>
@@ -259,7 +259,7 @@
             {% else %}
 
 
-            <div class="d-flex align-items-center justify-content-center bg-light product-image">
+            <div class="d-flex align-items-center justify-content-center bg-light" style="height:300px;">
 
                 <span class="text-muted">
                     No image available
