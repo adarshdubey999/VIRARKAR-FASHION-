@@ -56,3 +56,22 @@ This project was developed to understand real-world web application development,
 # Tools Used
 - VS Code
 - Git & GitHub
+
+## Run in GitHub Codespaces / VS Code
+
+This project is a **Django application**, so do not use the **Go Live** button or Live Server on port `5500`. Live Server is intended for static files and will display the repository directory instead of rendering Django templates.
+
+Use the included VS Code task instead:
+
+1. Open the repository in Codespaces.
+2. Open **Terminal → Run Task**.
+3. Select **Run Virarkar Fashion (Django)**.
+4. Open the forwarded port named **Virarkar Fashion website** on port `8000`.
+
+The equivalent terminal command is:
+
+```bash
+python3 manage.py runserver 0.0.0.0:8000
+```
+
+Then open the forwarded URL shown in the **Ports** panel. The repository includes `.devcontainer/devcontainer.json`, which forwards port `8000` and opens the Django preview automatically, and `.vscode/tasks.json`, which provides the one-click launch task.

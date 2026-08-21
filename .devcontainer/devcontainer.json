@@ -1,0 +1,12 @@
+{
+  "name": "Virarkar Fashion Django",
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "Virarkar Fashion website",
+      "onAutoForward": "openPreview",
+      "protocol": "http"
+    }
+  },
+  "postCreateCommand": "python3 -m pip install -r requirements.txt"
+}
