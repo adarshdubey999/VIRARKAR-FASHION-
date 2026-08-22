@@ -1,0 +1,1 @@
+- [x] Fix Codespaces dependency installation: remove or isolate incompatible audioop-lts pin so Django installs under the available Python version.
